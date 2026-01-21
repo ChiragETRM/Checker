@@ -38,3 +38,6 @@ next-env.d.ts
 # IDE
 .cursor/
 
+# Local Desktop directory (should not be in repo)
+Desktop/
+
