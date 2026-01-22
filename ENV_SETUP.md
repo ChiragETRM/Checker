@@ -4,14 +4,6 @@
 
 Create a file named `.env.local` in the project root directory (same folder as `package.json`) with the following content:
 
-```env
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=587
-SMTP_USER=apexetrm@gmail.com
-SMTP_PASSWORD=ebtv viwq vgjf abkk
-SMTP_FROM=apexetrm@gmail.com
-```
-
 ## Important Steps:
 
 1. **Create the file**: Create `.env.local` in the project root
