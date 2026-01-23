@@ -271,7 +271,6 @@ export default function FitQuizPage() {
       cautionFactors.push('You may need additional support with quantitative and technical concepts, as ETRM roles require comfort with data and systems.')
     }
 
-
     // Determine recommendation
     if (cautionFactors.length >= 3 || (cautionFactors.length >= 2 && positiveFactors.length <= 1)) {
       recommendation = 'Borderline'
@@ -279,6 +278,20 @@ export default function FitQuizPage() {
       recommendation = 'Strong Fit'
     } else {
       recommendation = 'Borderline'
+    }
+
+    // Specific rule: Support trading desks indirectly + 0-2 years ETRM experience = Borderline (takes precedence)
+    if (
+      answers.tradingExposure === 'Support trading desks indirectly (IT, data, compliance, ops)' &&
+      answers.etrmExperience === '0-2 years'
+    ) {
+      recommendation = 'Borderline'
+      if (!positiveFactors.some(f => f.includes('indirectly') || f.includes('supporting trading'))) {
+        positiveFactors.push('Your experience supporting trading desks indirectly provides relevant context for ETRM systems and workflows.')
+      }
+      if (!cautionFactors.some(f => f.includes('ETRM-specific experience') || f.includes('limited ETRM'))) {
+        cautionFactors.push('Your limited ETRM-specific experience means you may need additional effort to keep pace with the intensive curriculum.')
+      }
     }
 
     // Build reasons list
