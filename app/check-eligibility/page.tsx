@@ -158,6 +158,19 @@ export default function FitQuizPage() {
       }
     }
 
+    // Auto-eligible: Working in energy trading / commodities / power / gas / fuels
+    if (answers.currentStatus === 'Working in energy trading / commodities / power / gas / fuels') {
+      return {
+        eligible: true,
+        recommendation: 'Strong Fit',
+        reasons: [
+          'Your current role in energy trading, commodities, power, gas, or fuels directly aligns with the workshop content.',
+          'Professionals already working in this domain are well-positioned to benefit from and contribute to the training.',
+          'The workshop will build on your existing industry experience to deepen your ETRM expertise.',
+        ],
+      }
+    }
+
     const countryBucket = getCountryBucket(answers.country)
 
     // Gate 2: Mid-career switcher in developed market
